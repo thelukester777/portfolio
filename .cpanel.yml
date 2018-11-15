@@ -2,12 +2,12 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/betkvqwf/public_html/
-    - /bin/cp REPOPATH=/home/betkvqwf/repositories/The-Lukesters-Portfolio/PortfolioSite/index.html $DEPLOYPATH
-    - /bin/cp REPOPATH=/home/betkvqwf/repositories/The-Lukesters-Portfolio/PortfolioSite/error-page.html $DEPLOYPATH
-    - /bin/cp REPOPATH=/home/betkvqwf/repositories/The-Lukesters-Portfolio/PortfolioSite/parallax.html $DEPLOYPATH
-    - /bin/cp REPOPATH=/home/betkvqwf/repositories/The-Lukesters-Portfolio/PortfolioSite/robots.txt $DEPLOYPATH
-    - /bin/cp REPOPATH=/home/betkvqwf/repositories/The-Lukesters-Portfolio/PortfolioSite/send-mail.php $DEPLOYPATH
-    - /bin/cp REPOPATH=/home/betkvqwf/repositories/The-Lukesters-Portfolio/PortfolioSite/sitemap.xml $DEPLOYPATH
-    - /bin/cp REPOPATH=/home/betkvqwf/repositories/The-Lukesters-Portfolio/PortfolioSite/thank-you.html $DEPLOYPATH
-    - /bin/cp REPOPATH=/home/betkvqwf/repositories/The-Lukesters-Portfolio/PortfolioSite/css/main.css $DEPLOYPATH
-    - /bin/cp REPOPATH=/home/betkvqwf/repositories/The-Lukesters-Portfolio/PortfolioSite/css/main.min.css $DEPLOYPATH
+    - /bin/cp /home/betkvqwf/repositories/The-Lukesters-Portfolio/PortfolioSite/index.html $DEPLOYPATH
+    - /bin/cp /home/betkvqwf/repositories/The-Lukesters-Portfolio/PortfolioSite/error-page.html $DEPLOYPATH
+    - /bin/cp /home/betkvqwf/repositories/The-Lukesters-Portfolio/PortfolioSite/parallax.html $DEPLOYPATH
+    - /bin/cp /home/betkvqwf/repositories/The-Lukesters-Portfolio/PortfolioSite/robots.txt $DEPLOYPATH
+    - /bin/cp /home/betkvqwf/repositories/The-Lukesters-Portfolio/PortfolioSite/send-mail.php $DEPLOYPATH
+    - /bin/cp /home/betkvqwf/repositories/The-Lukesters-Portfolio/PortfolioSite/sitemap.xml $DEPLOYPATH
+    - /bin/cp /home/betkvqwf/repositories/The-Lukesters-Portfolio/PortfolioSite/thank-you.html $DEPLOYPATH
+    - /bin/cp /home/betkvqwf/repositories/The-Lukesters-Portfolio/PortfolioSite/css/main.css $DEPLOYPATH
+    - /bin/cp /home/betkvqwf/repositories/The-Lukesters-Portfolio/PortfolioSite/css/main.min.css $DEPLOYPATH
