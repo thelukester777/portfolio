@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/betkvqwf/public_html/
+    - /bin/cp /home/betkvqwf/repositories/The-Lukesters-Portfolio/PortfolioSite/index.html $DEPLOYPATH
