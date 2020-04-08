@@ -101,9 +101,10 @@ nav.contact{display:none;}
 #contact a:link,
 #contact a:visited{color:#4989bb;}
 #contact a:hover {color:#73c2ff;}
-.contact .mini-navigation ul li {color:#4989bb;}
+.contact .mini-navigation ul li {color:#6aa84f;}
 .contact .mini-navigation ul li a{color:#666;}
 .required{color:#999;font-size:.8em;padding-top:0;}
+iframe{border:0;height:1400px;width:100%}
 
 /* home - Illustration */
 nav.home{background:rgba(157, 167, 255, 0.5);border-top:1px solid #73c2ff;}
