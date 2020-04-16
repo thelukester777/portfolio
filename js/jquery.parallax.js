@@ -43,7 +43,7 @@
 		var debug = false;
 		
 		// Shim for requestAnimationFrame, falling back to timer. See:
-		// see http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+		// see https://paulirish.com/2011/requestanimationframe-for-smart-animating/
 		var requestFrame = (function(){
 		    	return (
 		    		window.requestAnimationFrame ||
