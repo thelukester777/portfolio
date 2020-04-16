@@ -1,0 +1,27 @@
+
+<style>
+/***** START Parallax ******/
+.parallax-viewport {position: relative;overflow: hidden;width:100%;}
+.parallax-layer {position: absolute;}
+#port {background: #000;overflow: hidden;position: relative;height: 500px;margin:0;}
+.parallax-viewport {position: relative;overflow: hidden;}
+.parallax-layer {position: absolute;}
+</style>
+
+<div id="port">
+    <img class="parallax-layer" src="images/0.png" alt="first layer" style="width:1320px; height:566px;" />
+    <img class="parallax-layer" src="images/1.png" alt="second layer" style="width:1400px; height:600px;" />
+    <img class="parallax-layer" src="images/2.png" alt="third layer" style="width:1560px; height:669px;" />
+    <img class="parallax-layer" src="images/3.png" alt="fourth layer" style="width:1560px; height:669px;" />
+    <img class="parallax-layer" src="images/4.png" alt="fifth layer" style="width:1480px; height:634px;" />
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+<script src="jquery.parallax.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	//Testing Commit And Deployment Status 000000
+    // Declare parallax on layers
+    $('.parallax-layer').parallax({
+        mouseport: $("#port")
+    });
+</script>
