@@ -6,15 +6,15 @@
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://www.thelukester.net/?page=home</loc>
+        <loc>https://thelukester777.github.io/portfolio/?page=home</loc>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://www.thelukester.net/?page=code</loc>
+        <loc>https://thelukester777.github.io/portfolio/?page=code</loc>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://www.thelukester.net/?page=contact</loc>
+        <loc>https://thelukester777.github.io/portfolio/?page=contact</loc>
         <priority>0.7</priority>
     </url>
     <url>
@@ -22,35 +22,35 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://www.thelukester.net/?page=faces</loc>
+        <loc>https://thelukester777.github.io/portfolio/?page=faces</loc>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://www.thelukester.net/?page=alley</loc>
+        <loc>https://thelukester777.github.io/portfolio/?page=alley</loc>
         <priority>0.5</priority>
     </url>
    <url>
-        <loc>https://www.thelukester.net/?page=dream</loc>
+        <loc>https://thelukester777.github.io/portfolio/?page=dream</loc>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://www.thelukester.net/?page=octo</loc>
+        <loc>https://thelukester777.github.io/portfolio/?page=octo</loc>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://www.thelukester.net/?page=seafloor</loc>
+        <loc>https://thelukester777.github.io/portfolio/?page=seafloor</loc>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://www.thelukester.net/?page=idea</loc>
+        <loc>https://thelukester777.github.io/portfolio/?page=idea</loc>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://www.thelukester.net/thank-you.html</loc>
+        <loc>https://thelukester777.github.io/portfolio/thank-you.html</loc>
         <priority>0.2</priority>
     </url>
     <url>
-        <loc>https://www.thelukester.net/error-page.html</loc>
+        <loc>https://thelukester777.github.io/portfolio/error-page.html</loc>
         <priority>0.2</priority>
     </url>
 </urlset>

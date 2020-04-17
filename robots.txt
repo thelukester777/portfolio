@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-SITEMAP: https://www.thelukester.net/sitemap.xml
+SITEMAP: https://thelukester777.github.io/portfolio/sitemap.xml
