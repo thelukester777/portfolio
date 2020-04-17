@@ -9,6 +9,7 @@ p:last-child{padding-bottom:40px;}
 a:link,
 a:visited,
 a:hover{text-decoration:none;transition:.3s;}
+a.resume-link{margin-left:20px;color:#6aa84f;font-size:.8em;}
 img{height:100%;width:100%;}
 input,textarea{border-width:1px;border-color:#e5e5e5;border-style:solid;border-radius:3px;font-size:14px;height:30px;margin:0 20px 0 337px;padding: 5px 10px;position:relative;}
 textarea{width:50%;}
@@ -56,6 +57,7 @@ nav.start{display:none;}
 #start p a:hover{color: #73c2ff;}
 .start .mini-navigation ul li {color: #4989bb;}
 .start .mini-navigation ul li a{color: #666;}
+table{width: 120%;}
 
 /* Code */
 nav.code{display:none;}
