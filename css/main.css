@@ -10,9 +10,9 @@ a:link,
 a:visited,
 a:hover{text-decoration:none;transition:.3s;}
 img{height:100%;width:100%;}
-input,textarea{border-width:1px 1px 2px 1px;border-color:#999;border-style:solid;border-radius:3px;margin:0 20px 0 337px;padding: 5px 10px;position:relative;}
+input,textarea{border-width:1px;border-color:#e5e5e5;border-style:solid;border-radius:3px;font-size:14px;height:30px;margin:0 20px 0 337px;padding: 5px 10px;position:relative;}
 textarea{width:50%;}
-button{background:rgba(117, 195, 255, 0.20);border-color:#3a72a1;border-radius:3px;border-style:solid;border-width:1px 1px 2px 1px;color: #001733;cursor:pointer;font-size:15px;font-weight:600;height:36px;margin:10px 20px 10px 337px;padding:5px 10px;position:relative;text-align:center;}
+button{background:rgba(117, 195, 255, 0.20);border-color:#3a72a1;border-radius:20px;border-style:solid;border-width:1px;color: #001733;cursor:pointer;font-size:16px;font-weight:600;height:40px;margin:10px 20px 10px 337px;padding:5px 10px;position:relative;text-align:center;width:10%;}
 button:hover{background:rgba(117, 195, 255, 0.40);border-color: #001733;}
 pre{padding:0 20px 20px 20px;}
 code{font-size:.8em;line-height:1.3em;padding:10px 50px;border: 1px dashed #889b4a;border-radius: 5px;}
