@@ -24,18 +24,18 @@ code{font-size:.8em;line-height:1.3em;padding:10px 50px;border: 1px dashed #889b
 header{box-shadow:1px 3px 5px #000;font-size:.8em;margin:0 auto;max-width:978px;position:relative;text-align:center;}
 
 /* H1 styling */
-h1.main{font-size:1.2em;line-height:1em;}
-.start h1.main{color: #4989bb;}
-.code  h1.main{color:#d6baad;}
-.design h1.main{color:#cc0000;}
-.contact h1.main{color:#6aa84f;}
-.home h1.main{color:#fff;}
-.faces h1.main {color: #999;}
-.alley h1.main {color:#999;}
-.dream h1.main{color: #156eec;}
-.octo h1.main {color: #e84527;}
-.seafloor h1.main{color:#fff;}
-.idea h1.main a{color:#ff817d;}
+h1.top-level{font-size:1.2em;line-height:1em;}
+.start h1.top-level{color: #4989bb;}
+.code  h1.top-level{color:#d6baad;}
+.design h1.top-level{color:#cc0000;}
+.contact h1.top-level{color:#6aa84f;}
+.home h1.top-level{color:#fff;}
+.faces h1.top-level {color: #999;}
+.alley h1.top-level {color:#999;}
+.dream h1.top-level{color: #156eec;}
+.octo h1.top-level {color: #e84527;}
+.seafloor h1.top-level{color:#fff;}
+.idea h1.top-level a{color:#ff817d;}
 
 /***** Mini Navigation *****/
 .mini-navigation{margin:0 20px;}
