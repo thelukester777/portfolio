@@ -1,5 +1,5 @@
 /*-----------------------
-COPYRIGHT 2017 Luke Young
+COPYRIGHT 2020 Luke Young
 -----------------------*/
 body {background:#222;color:#333;font-family:Arial,Helvetica,sans-serif;font-size:16px;margin-top:15px;padding:0;position:relative;z-index:-9999;}
 h1,h2,h3 {float:left;font-size:1.2em;margin:0;padding:20px;position:relative;}
@@ -9,7 +9,8 @@ p:last-child{padding-bottom:40px;}
 a:link,
 a:visited,
 a:hover{text-decoration:none;transition:.3s;}
-a.resume-link{margin-left:20px;color:#6aa84f;font-size:.8em;}
+a.resume-link{color:#6aa84f;}
+a.resume-link h2 {font-size: .8em;padding: 0;margin: 0 0 0 20px;font-weight: normal;}
 img{height:100%;width:100%;}
 input,textarea{border-width:1px;border-color:#e5e5e5;border-style:solid;border-radius:3px;font-size:14px;height:30px;margin:0 20px 0 337px;padding: 5px 10px;position:relative;}
 textarea{width:50%;}
@@ -22,11 +23,24 @@ code{font-size:.8em;line-height:1.3em;padding:10px 50px;border: 1px dashed #889b
 /* Header background reference */
 header{box-shadow:1px 3px 5px #000;font-size:.8em;margin:0 auto;max-width:978px;position:relative;text-align:center;}
 
+/* H1 styling */
+h1.main{font-size:1.2em;line-height:1em;}
+.start h1.main{color: #4989bb;}
+.code  h1.main{color:#d6baad;}
+.design h1.main{color:#cc0000;}
+.contact h1.main{color:#6aa84f;}
+.home h1.main{color:#fff;}
+.faces h1.main {color: #999;}
+.alley h1.main {color:#999;}
+.dream h1.main{color: #156eec;}
+.octo h1.main {color: #e84527;}
+.seafloor h1.main{color:#fff;}
+.idea h1.main a{color:#ff817d;}
+
 /***** Mini Navigation *****/
 .mini-navigation{margin:0 20px;}
 .mini-navigation ul{list-style-type:none;position:relative;top:30px;}
 .mini-navigation ul li{float:left;position:relative;text-align:center;}
-.mini-navigation ul li:first-child{font-size:1.2em;line-height:1em;}
 .mini-navigation ul li a{color: #fff;float:right;margin:0 5px;}
 
 /***** Main Navigation *****/
@@ -194,6 +208,7 @@ footer a:hover{color:#fff;}
 @media all and (min-width: 320px) and (max-width: 767px) {
 
 h1,h2,h3{float:none;padding:20px 10px 10px 10px;}
+h1.main{margin-bottom:10px;text-align:left;width:100%;}
 p{padding:10px;}
 input,textarea{margin:10px;width:85%;}
 button{display:block;margin:10px 20px;}
@@ -205,7 +220,6 @@ nav.home ul,nav.faces ul,nav.alley ul,nav.dream ul,nav.octo ul,nav.seafloor ul,n
 hr{margin:20px 10px;}
 .mini-navigation ul{top:10px;}
 .mini-navigation{margin:0 10px;}
-.mini-navigation ul li:first-child{margin-bottom:10px;text-align:left;width:100%;}
 .mini-navigation ul li a{margin:0 2px;}
 #contact > h3:nth-child(2){padding-top:10px;}
 #contact h3{margin:0 10px;}
