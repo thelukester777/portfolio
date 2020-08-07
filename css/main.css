@@ -13,7 +13,7 @@ a.resume-link h2 {color:#6aa84f;font-size: .8em;padding: 0;margin: 0 0 0 20px;fo
 img{height:100%;width:100%;}
 input,textarea{border-width:1px;border-color:#e5e5e5;border-style:solid;border-radius:3px;font-size:14px;height:30px;margin:0 20px 0 337px;padding: 5px 10px;position:relative;}
 textarea{width:50%;}
-button{background:rgba(117, 195, 255, 0.20);border-color:#3a72a1;border-radius:20px;border-style:solid;border-width:1px;color: #001733;cursor:pointer;font-size:16px;font-weight:600;height:40px;margin:10px 20px 10px 337px;padding:5px 10px;position:relative;text-align:center;width:10%;}
+button{background:rgba(117, 195, 255, 0.20);border-color:#3a72a1;border-radius:20px;border-style:solid;border-width:1px;color: #001733;cursor:pointer;font-size:16px;font-weight:600;height:40px;margin:10px 20px 10px 337px;padding:5px 10px;position:relative;text-align:center;width:10%;min-width:100px;}
 button:hover{background:rgba(117, 195, 255, 0.40);border-color: #001733;}
 pre{padding:0 20px 20px 20px;}
 code{font-size:.8em;line-height:1.3em;padding:10px 50px;border: 1px dashed #889b4a;border-radius: 5px;}
@@ -211,7 +211,7 @@ h1,h2,h3{float:none;padding:20px 10px 10px 10px;}
 h1.top-level{margin-bottom: 10px;text-align: left;width: 100%;padding: 0 0 10px 0;top: 0;}
 p{padding:10px;}
 input,textarea{margin:10px;width:85%;}
-button{display:block;margin:10px 20px;}
+button{display:block;margin:10px 20px;width:100px;}
 section.no-image{padding-top:80px;}
 section img{border-radius:0!important;}
 nav.home,nav.faces,nav.alley,nav.dream,nav.octo,nav.seafloor,nav.idea{height:32px;font-size:.75em;top:40px;}
