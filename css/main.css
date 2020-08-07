@@ -9,8 +9,7 @@ p:last-child{padding-bottom:40px;}
 a:link,
 a:visited,
 a:hover{text-decoration:none;transition:.3s;}
-a.resume-link{color:#6aa84f;}
-a.resume-link h2 {font-size: .8em;padding: 0;margin: 0 0 0 20px;font-weight: normal;}
+a.resume-link h2 {color:#6aa84f;font-size: .8em;padding: 0;margin: 0 0 0 20px;font-weight: normal;}
 img{height:100%;width:100%;}
 input,textarea{border-width:1px;border-color:#e5e5e5;border-style:solid;border-radius:3px;font-size:14px;height:30px;margin:0 20px 0 337px;padding: 5px 10px;position:relative;}
 textarea{width:50%;}
@@ -25,7 +24,7 @@ header{box-shadow:1px 3px 5px #000;font-size:.8em;margin:0 auto;max-width:978px;
 
 /* H1 styling */
 h1.top-level {font-size:1.2em;line-height:1em;padding:0;top:29px;margin-right:20px;}
-.start h1.top-level{color: #4989bb;}
+.start h1.top-level{color: #6aa84f;}
 .code  h1.top-level{color:#d6baad;}
 .design h1.top-level{color:#cc0000;}
 .contact h1.top-level{color:#6aa84f;}
