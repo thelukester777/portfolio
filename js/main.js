@@ -19,9 +19,7 @@ $(document).ready(function() {
     $(anchorClick).click(function() {
         var o = $(this).attr('data-link');
         $(mainNav).hide(), $('#' + o).fadeIn('slow'), $(navHeader).removeClass().addClass(o);
-    });
-
-    /*, hljs.initHighlightingOnLoad(), o();*/
+    }), /*hljs.initHighlightingOnLoad(),*/ o(); 
 
     var carouselInit = $('.show-carousel'),
         carouselButtons = $('.slick-arrow, .slick-dots'),
