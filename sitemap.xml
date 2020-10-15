@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Testing Commit And Deployment Status 000000-->
-<urlset xmlns="https://www.thelukester.com/">
+<urlset xmlns="https://thelukester777.github.io/portfolio/">
     <url>
-        <loc>https://www.thelukester.com/</loc>
+        <loc>https://thelukester777.github.io/portfolio/?page=start</loc>
         <priority>1.0</priority>
     </url>
     <url>
+        <loc>https://thelukester777.github.io/portfolio/?page=sears</loc>
+        <priority>0.2</priority>
+    </url>
+    <url>
+        <loc>https://thelukester777.github.io/portfolio/?page=calumet</loc>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>https://www.thelukester.com/?page=illustration</loc>
+        <priority>0.4</priority>
+    </url>
+    <url>
         <loc>https://thelukester777.github.io/portfolio/?page=home</loc>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://thelukester777.github.io/portfolio/?page=code</loc>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://thelukester777.github.io/portfolio/?page=contact</loc>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://www.thelukester.com/?page=design</loc>
-        <priority>0.6</priority>
+        <priority>0.5</priority>
     </url>
     <url>
         <loc>https://thelukester777.github.io/portfolio/?page=faces</loc>
@@ -44,13 +43,5 @@
     <url>
         <loc>https://thelukester777.github.io/portfolio/?page=idea</loc>
         <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>https://thelukester777.github.io/portfolio/thank-you.html</loc>
-        <priority>0.2</priority>
-    </url>
-    <url>
-        <loc>https://thelukester777.github.io/portfolio/error-page.html</loc>
-        <priority>0.2</priority>
     </url>
 </urlset>
