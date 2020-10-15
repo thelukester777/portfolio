@@ -27,17 +27,10 @@ header{box-shadow:1px 3px 5px #000;font-size:.8em;margin:0 auto;max-width:978px;
 /* H1 styling */
 h1.top-level {font-size:1.2em;line-height:1em;padding:0;top:29px;margin-right:20px;}
 .start h1.top-level{color:#333;}
-.code  h1.top-level{color:#d6baad;}
 .sears h1.top-level{color:#005CCC;}
 .calumet h1.top-level{color:#cc0000;}
 .contact h1.top-level{color:#333;}
 .home h1.top-level{color:#fff;}
-.faces h1.top-level {color: #999;}
-.alley h1.top-level {color:#999;}
-.dream h1.top-level{color: #156eec;}
-.octo h1.top-level {color: #e84527;}
-.seafloor h1.top-level{color:#fff;}
-.idea h1.top-level a{color:#ff817d;}
 
 /***** Mini Navigation *****/
 .mini-navigation{margin:0 20px;}
@@ -55,7 +48,6 @@ nav ul li a:hover{color:#fff;}
 
 /***** Content *****/
 main{color:#333;margin:10px auto 0 auto;max-width:978px;line-height:18pt;position:relative;z-index:-1;}
-#home img,#faces img,#dream img,#octo img,#seafloor img,#idea img,.thanks img,.error img{border-top-left-radius:5px;border-top-right-radius:5px;z-index:-2;}
 section{background: rgb(241,241,241);
 background: linear-gradient(180deg, rgba(241,241,241,1) 0%, rgba(255,255,255,1) 100%);border-radius: 5px;box-shadow:1px 3px 5px #000;position:relative;top:-43px;}
 
@@ -162,9 +154,14 @@ nav.home ul li,
 nav.home ul li a:link,
 nav.home ul li a:visited{color:#73c2ff;}
 nav.home ul li a:hover{color: #fff;}
-#home{border-top:solid 1px #3a72a1;}
+#home{border-top:solid 1px #666;background:#333;}
+#home hr{border-bottom:1px dashed #000;}
 .home .mini-navigation ul li{color:#fff;}
 .home .mini-navigation ul li a{color:#73c2ff;}
+.illustration-container{margin: 20px auto 0 auto;max-width:800px;background:#333;padding-bottom:60px;}
+.illustration-container h2,
+.illustration-container p{color:#fff;}
+
 
 /* Faces */
 nav.faces {background:rgba(34, 34, 34, 0.7);}
