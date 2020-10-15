@@ -10,8 +10,6 @@ p:last-child{padding-bottom:40px;}
 a:link,
 a:visited{text-decoration:none;transition:.3s;}
 a:hover{text-decoration:underline;}
-a.resume-link h2 {color:#666;font-size: .8em;padding: 0;margin: 0 0 20px 20px;font-weight: normal;}
-a.resume-link h2:hover{text-decoration:underline;}
 img{height:100%;width:100%;}
 input,textarea{border-width:1px;border-color:#e5e5e5;border-style:solid;border-radius:3px;font-size:14px;height:30px;margin:0 20px 0 337px;padding: 5px 10px;position:relative;}
 textarea{width:50%;}
@@ -61,10 +59,11 @@ section.no-image{margin-bottom:5%;padding-top:8%;position:static;}
 
 /* Resume */
 nav.start{display:none;}
+#start h2{float:none;}
 #start p{padding:10px 20px;}
-#start p a:link,
-#start p a:visited{color: #4989bb;}
-#start p a:hover{color: #73c2ff;}
+#start a:link,
+#start a:visited,
+#start a:hover{color: #666;margin:20px;}
 .start .mini-navigation ul li {color:#999;}
 .start .mini-navigation ul li a{color:#666;}
 table{width: 120%;}
@@ -106,6 +105,7 @@ nav.sears ul li a:hover{display:none;}
 
 .sears .mini-navigation ul li{color:#005CCC;}
 .sears .mini-navigation ul li a{color:#666;}
+.developer-guide-link{margin-top:20px;}
 
 /* Calumet */
 nav.calumet{display:none;}
