@@ -270,8 +270,13 @@ h1.top-level{margin-bottom: 10px;text-align: left;width: 100%;padding: 0 0 10px 
 p{padding:10px;}
 input,textarea{margin:10px;width:85%;}
 .contact button{display:block;margin:10px 20px;width:100px;}
-section.no-image{padding-top:80px;}
 section img{border-radius:0!important;}
+.contact h1.top-level,
+.start h1.top-level{color:#fff;}
+.contact .mini-navigation ul li a,
+.start .mini-navigation ul li a,
+.sears .mini-navigation ul li a,
+.calumet .mini-navigation ul li a{color:#999;}
 nav.home,nav.faces,nav.alley,nav.dream,nav.octo,nav.seafloor,nav.idea{height:32px;font-size:.75em;top:40px;}
 hr{margin:20px 10px;}
 .mini-navigation ul{top:10px;}
