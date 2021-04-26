@@ -3,9 +3,10 @@ COPYRIGHT 2020 Luke Young
 -----------------------*/
 *{margin:0;padding:0;}
 body {background:#000;color:#333;font-family:Arial,Helvetica,sans-serif;font-size:16px;margin:0;padding:0;position:relative;z-index:-9999;}
-h1,h2,h3 {float:left;font-size:1.2em;margin:0;padding:20px;position:relative;}
+h1{float:left;}
+h1, h2,h3 {font-size:1.2em;margin:0;padding:20px;position:relative;}
 ul{margin:0;padding:0;}
-p{margin:0 20px 0 0;padding:20px 20px 0 337px;position:relative;}
+p{margin:0 20px 0 0;padding:20px;position:relative;}
 p:last-child{padding-bottom:40px;}
 a:link,
 a:visited{text-decoration:none;transition:.3s;}
@@ -25,6 +26,7 @@ header{box-shadow:1px 3px 5px #000;font-size:.8em;margin:0 auto;max-width:978px;
 /* H1 styling */
 h1.top-level {font-size:1.2em;line-height:1em;padding:0;top:29px;margin-right:20px;}
 .start h1.top-level{color:#333;}
+.mindful h1.top-level{color:#14a0c6;}
 .sears h1.top-level{color:#005CCC;}
 .calumet h1.top-level{color:#cc0000;}
 .contact h1.top-level{color:#333;}
@@ -34,7 +36,7 @@ h1.top-level {font-size:1.2em;line-height:1em;padding:0;top:29px;margin-right:20
 .mini-navigation{margin:0 20px;}
 .mini-navigation ul{list-style-type:none;position:relative;top:30px;}
 .mini-navigation ul li{float:left;position:relative;text-align:center;}
-.mini-navigation ul li a{color: #fff;float:right;margin:0 5px;}
+.mini-navigation ul li a{color: #333;float:right;margin:0 5px;}
 
 /***** Main Navigation *****/
 nav{border-top:1px solid #666;box-shadow:1px 3px 5px #000;margin:0 auto;max-width:1000px;position:relative;text-align:center;top:70px;}
@@ -68,17 +70,11 @@ nav.start{display:none;}
 .start .mini-navigation ul li a{color:#666;}
 table{width: 120%;}
 
-/* Code */
-nav.code{display:none;}
-#code{background:#000;color:#d6baad;border-top:solid 1px #666;font-family:monospace;}
-#code p a:link,
-#code p a:visited{color: #889b4a;}
-#code p a:hover{color: #fff;}
-.code .mini-navigation ul li {color:#d6baad;}
-.code .mini-navigation ul li a{color:#fff;}
-#code h1,#code h2,#code h3{color:#889b4a;}
-#code p{font-size:.8em;}
-hr{border:0;border-bottom: 1px dashed #889b4a;margin:40px 20px;}
+
+/* Mindful Practices */
+#mindful{background:#d6e7eb;}
+#mindful h2{color:#14a0c6;}
+.carousel-mindful-content img{height:300px;width:186px;}
 
 /* Sears */
 nav.sears{display:none;}
@@ -236,19 +232,27 @@ footer a,footer a:link,footer a:visited{color:#999;}
 footer a:hover{color:#fff;}
 
 /***** SLICK Overrides *****/
-.slick-prev, .slick-next {top:200px;z-index:100;}
-.slick-prev:before, .slick-next:before{font-size:40px;}
-.slick-dots li button:before{color:white;font-size:12px;}
-.slick-dots li.slick-active button:before{color:white;}
 
-.slick-prev{left:-10%;}
-.slick-next{right:-8%;}
-.slick-dots{top:5px;z-index:100;}
+.slick-prev, .slick-next {z-index:100;}
+.slick-prev:before, .slick-next:before{font-size:40px;color:#fff;}
+.slick-dots li button:before{color:#fff;font-size:12px;}
+.slick-dots li.slick-active button:before{color:#fff;}
+
+.slick-slide {opacity: .1;}
+.slick-slide img{height:242px;width:150px;padding-top:20px;}
+.slick-active {opacity: .4;}
+.slick-current {opacity: 1;}
+.slick-current img{height:300px;width:186px;padding-top:0px;}
+
+.slick-prev{left:15px;}
+.slick-next{right:30px;}
+.slick-dots{top:320px;z-index:100;}
 
 /***** Modal and Carousel ****/
 #sears .show-carousel{display:block;margin:20px;}
 .show-carousel span{display:block;margin-left:20px;}
 .screen{display:none;height: 3000px;width: 100%;background: #000;position: absolute;top: -10px;z-index:98;}
+.modal-mindful-content,
 .modal-calumet-emails,
 .modal-calumet-banners,
 .modal-sears-content{background:#fff;display:none;max-width:978px;max-height:2000px;overflow:scroll;position:absolute;top:3em;margin:0 auto;float:left;z-index:99;}
