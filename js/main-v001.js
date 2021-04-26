@@ -22,40 +22,33 @@ $(document).ready(function() {
     }), /*hljs.initHighlightingOnLoad(),*/ o(); 
 
     var carouselInit = $('.show-carousel'),
-        modalInit = $('.show-modal'),
         carouselButtons = $('.slick-arrow, .slick-dots'),
         headerWindow = $('header'),
-        body = $('body'),
         closeButton = $('.close-button, .close-modal');
-    
-    // Carousels
+
     $(carouselInit).click(function() {
         var clickedCarouselLink = $(this).attr('title');
+            
         setTimeout(function() {
-            var carouselWindow = $('.carousel-' + clickedCarouselLink);
+            var modalWindow = $('.modal-' + clickedCarouselLink), 
+                carouselWindow = $('.carousel-' + clickedCarouselLink),
+                modalScreen = $('.screen, .modal-' + clickedCarouselLink);
+            $(headerWindow).append($(modalWindow));
+            $(modalScreen).fadeIn('fast');
             $(carouselWindow).slick({
-                centerMode: true,
-                centerPadding: '100px',
-                slidesToShow: 3,
                 lazyLoad: 'ondemand',
                 dots: true,
                 infinite: true,
                 speed: 500,
-                adaptiveHeight: true,
+                fade: true,
+                cssEase: 'linear',
+                appendDots: $(headerWindow),
+                appendArrows: $(headerWindow),
+                slidesToShow: 1,
+                adaptiveHeight: true
             });
-        }, 100);
-    }),
-    // Modals
-    $(modalInit).click(function() {
-        var clickedModalLink = $(this).attr('title');
-        console.log(clickedModalLink);
-            
-        setTimeout(function() {
-            var modalWindow = $('.modal-' + clickedModalLink), 
-                modalScreen = $('.screen, .modal-' + clickedModalLink);
-            $(body).append($(modalWindow));
-            $(modalScreen).fadeIn('fast');
             $(closeButton).click(function() {
+                $(carouselWindow).slick('unslick'),
                 $(modalScreen).hide();
             });
         }, 100);
