@@ -11,6 +11,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('main > section.main');
   const screen = document.querySelector('.screen');
+  const header = document.querySelector('header');
 
   /* ---------- 1. Section navigation ---------- */
 
@@ -18,8 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach((sec) => {
       sec.classList.toggle('hide', sec.id !== id);
     });
+    if (header) header.className = id;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  if (header) header.className = 'start';
 
   // Every nav link EXCEPT the gallery triggers and modal close buttons
   // switches sections. (Gallery triggers open modals instead — handled below.)

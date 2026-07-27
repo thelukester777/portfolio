@@ -80,8 +80,6 @@ nav.code{display:none;}
 #code p{font-size:.8em;}
 hr{border:0;border-bottom: 1px dashed #889b4a;margin:40px 20px;}
 
-<<<<<<< Updated upstream
-=======
 /* Mindful Practices & Class Catalyst */
 nav.mindful{display:none;}
 #mindful{background:#fff;border-top:solid 1px #666;}
@@ -95,7 +93,6 @@ nav.mindful{display:none;}
 .mindful .mini-navigation ul li{color:#2e7d5f;}
 .mindful .mini-navigation ul li a{color:#666;}
 
->>>>>>> Stashed changes
 /* Sears */
 nav.sears{display:none;}
 nav.sears ul li{height:32px;}
