@@ -80,6 +80,18 @@ nav.code{display:none;}
 #code p{font-size:.8em;}
 hr{border:0;border-bottom: 1px dashed #889b4a;margin:40px 20px;}
 
+/* Mindful Practices & Class Catalyst */
+nav.mindful{display:none;}
+#mindful{background:#fff;border-top:solid 1px #666;}
+#mindful div.clear{clear:both;}
+#mindful h2,
+#mindful h3{float:none;margin:0;padding:5px 20px;}
+#mindful p{float:none;padding:10px 20px;}
+#mindful h2{color:#2e7d5f;}
+.mindful h1.top-level{color:#2e7d5f;}
+.mindful .mini-navigation ul li{color:#2e7d5f;}
+.mindful .mini-navigation ul li a{color:#666;}
+
 /* Sears */
 nav.sears{display:none;}
 nav.sears ul li{height:32px;}
