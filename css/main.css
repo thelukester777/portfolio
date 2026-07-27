@@ -88,6 +88,7 @@ nav.mindful{display:none;}
 #mindful h3{float:none;margin:0;padding:5px 20px;}
 #mindful p{float:none;padding:10px 20px;}
 #mindful h2{color:#2e7d5f;}
+#mindful a{color:#2e7d5f;}
 .mindful h1.top-level{color:#2e7d5f;}
 .mindful .mini-navigation ul li{color:#2e7d5f;}
 .mindful .mini-navigation ul li a{color:#666;}
@@ -253,7 +254,8 @@ footer a:hover{color:#fff;}
 .screen{display:none;height: 3000px;width: 100%;background: #000;position: absolute;top: -10px;z-index:98;}
 .modal-calumet-emails,
 .modal-calumet-banners,
-.modal-sears-content{background:#fff;display:none;max-width:978px;max-height:2000px;overflow:scroll;position:absolute;top:3em;margin:0 auto;float:left;z-index:99;}
+.modal-sears-content,
+.modal-mindful-content{background:#fff;display:none;max-width:978px;max-height:2000px;overflow:scroll;position:absolute;top:3em;margin:0 auto;float:left;z-index:99;}
 .close-button{position:fixed;display:block;z-index:100;opacity:80%;}
 .close-button:hover{text-decoration:none;opacity:100%;}
 .close-x{display:block;height: 40px;width: 40px;font-size: 34px;position: relative;left:-105px;border: 1px solid #999;border-radius: 5px;text-align: center;line-height: 40px;margin: 5px;color: #999;font-weight: 100;cursor: pointer;}
