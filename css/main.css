@@ -82,16 +82,18 @@ hr{border:0;border-bottom: 1px dashed #889b4a;margin:40px 20px;}
 
 /* Mindful Practices & Class Catalyst */
 nav.mindful{display:none;}
-#mindful{background:#fff;border-top:solid 1px #666;}
-#mindful div.clear{clear:both;}
+#mindful{background:url('../images/cc-dashes-clouds-birds-background.jpg') top right / contain no-repeat #fff;border-top:solid 1px #666;}
+#mindful div.clear{clear:both;padding-bottom:40px;}
 #mindful h2,
 #mindful h3{float:none;margin:0;padding:5px 20px;}
 #mindful p{float:none;padding:10px 20px;}
-#mindful h2{color:#2e7d5f;}
+#mindful h2{color:#187C97;}
 #mindful .show-carousel{color:#2e7d5f;}
 .mindful h1.top-level{color:#2e7d5f;}
 .mindful .mini-navigation ul li{color:#2e7d5f;}
 .mindful .mini-navigation ul li a{color:#666;}
+.mindful-link, .mindful-link:hover, .mindful-link:visited{color:#187C97;font-weight:900;}
+.catalyst-link, .catalyst-link:hover, .catalyst-link:visited{color:#37796c;font-weight:900;}
 
 /* Sears */
 nav.sears{display:none;}
@@ -262,7 +264,8 @@ button.cta-button{display:block;width:fit-content;padding:10px 20px;margin:10px 
 #calumet button.show-carousel:has(h3){display:block;width:100%;}
 #sears .cta-button{background:#005CCC;color:#fff;margin:10px auto 0 auto;}
 #calumet .cta-button{background:#cc0000;color:#fff;}
-#mindful .cta-button{background:#2e7d5f;color:#fff;}
+#mindful .cta-button{background:#EB6B2B;color:#fff;padding:20px 30px;font-weight:900;}
+#mindful .cta-button:hover{font-size:1.1rem;text-decoration:none;}
 .screen{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:98;}
 .modal-calumet-emails,
 .modal-calumet-banners,
