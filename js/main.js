@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function closeModal() {
     document.querySelectorAll('.close-modal.open').forEach((m) => m.classList.remove('open'));
+    document.querySelectorAll('.carousel-contain.zoomed').forEach((c) => c.classList.remove('zoomed'));
     screen && screen.classList.remove('active');
     document.body.classList.remove('modal-open');
   }
@@ -90,6 +91,13 @@ document.addEventListener('DOMContentLoaded', () => {
       slide.style.display = i === 0 ? '' : 'none';
     });
 
+    // Click an image to zoom to full size (scrollable); click again to fit.
+    carousel.querySelectorAll('.carousel-contain img').forEach((img) => {
+      img.addEventListener('click', () => {
+        img.closest('.carousel-contain').classList.toggle('zoomed');
+      });
+    });
+
     if (slides.length <= 1) return; // no controls needed for a single slide
 
     const prevBtn = document.createElement('button');
@@ -117,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function goTo(next) {
       slides[index].style.display = 'none';
+      slides[index].querySelectorAll('.carousel-contain.zoomed').forEach((c) => c.classList.remove('zoomed'));
       dotsWrap.children[index].classList.remove('active');
       index = (next + slides.length) % slides.length;
       slides[index].style.display = '';

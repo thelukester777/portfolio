@@ -88,7 +88,7 @@ nav.mindful{display:none;}
 #mindful h3{float:none;margin:0;padding:5px 20px;}
 #mindful p{float:none;padding:10px 20px;}
 #mindful h2{color:#2e7d5f;}
-#mindful a{color:#2e7d5f;}
+#mindful .show-carousel{color:#2e7d5f;}
 .mindful h1.top-level{color:#2e7d5f;}
 .mindful .mini-navigation ul li{color:#2e7d5f;}
 .mindful .mini-navigation ul li a{color:#666;}
@@ -100,7 +100,7 @@ nav.sears ul li a:link,
 nav.sears ul li a:visited,
 nav.sears ul li a:hover{display:none;}
 #sears h2{color:#005CCC;}
-#sears a{color:#005CCC;}
+#sears .show-carousel{color:#005CCC;}
 #sears{background:#fff;border-top:solid 1px #666;}
 #sears div.clear{clear:both;}
 #sears img{float:right;height:45%;margin-right:20px;width:45%;}
@@ -127,7 +127,7 @@ nav.calumet ul li a:link,
 nav.calumet ul li a:visited,
 nav.calumet ul li a:hover{display:none;}
 #calumet h2{color:#cc0000;}
-#calumet a{color:#cc0000;}
+#calumet .show-carousel{color:#cc0000;}
 #calumet{background:#fff;border-top:solid 1px #666;padding-bottom:25%;}
 #calumet div.clear{clear:both;}
 #calumet img{float:right;height:45%;margin-right:20px;width:45%;}
@@ -249,20 +249,33 @@ footer a,footer a:link,footer a:visited{color:#999;}
 footer a:hover{color:#fff;}
 
 /***** Modal and Carousel ****/
+button.show-carousel{background:none;border:0;padding:0;margin:0;font:inherit;text-align:inherit;cursor:pointer;text-decoration:none;transition:.3s;}
+button.show-carousel:hover{text-decoration:underline;}
 #sears .show-carousel{display:block;margin:20px;}
 .show-carousel span{display:block;margin-left:20px;}
-.screen{display:none;height: 3000px;width: 100%;background: #000;position: absolute;top: -10px;z-index:98;}
+
+/* CTA buttons, styled after classcatalyst.com's pill buttons */
+.cta-button{display:inline-block;border:0;border-radius:40px;box-shadow:0 8px 14px -6px rgba(0,0,0,.3);font-weight:700;text-align:center;text-decoration:none;transition:.3s;}
+.cta-button:hover{filter:brightness(0.9);text-decoration:none;}
+button.cta-button{display:block;width:fit-content;padding:10px 20px;margin:10px auto 0 auto;cursor:pointer;}
+.show-carousel span.cta-button{display:block;width:fit-content;margin:8px auto 0 auto;padding:6px 16px;}
+#calumet button.show-carousel:has(h3){display:block;width:100%;}
+#sears .cta-button{background:#005CCC;color:#fff;margin:10px auto 0 auto;}
+#calumet .cta-button{background:#cc0000;color:#fff;}
+#mindful .cta-button{background:#2e7d5f;color:#fff;}
+.screen{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:98;}
 .modal-calumet-emails,
 .modal-calumet-banners,
 .modal-sears-content,
-.modal-mindful-content{background:#fff;display:none;max-width:978px;max-height:2000px;overflow:scroll;position:absolute;top:3em;margin:0 auto;float:left;z-index:99;}
-.close-button{position:fixed;display:block;z-index:100;opacity:80%;}
-.close-button:hover{text-decoration:none;opacity:100%;}
-.close-x{display:block;height: 40px;width: 40px;font-size: 34px;position: relative;left:-105px;border: 1px solid #999;border-radius: 5px;text-align: center;line-height: 40px;margin: 5px;color: #999;font-weight: 100;cursor: pointer;}
-.close-text{font-size:12px;color:#999;left:-105px;position:relative;}
-.carousel-contain {margin: 20px auto 0 auto;width:800px;}
-.carousel-contain img{margin: 20px auto 40px auto;object-fit: cover;}
-.modal-calumet-banners .carousel-contain{margin-top:60px;}
+.modal-mindful-content{background:#fff;display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:92vw;max-width:978px;height:88vh;overflow:hidden;border-radius:8px;z-index:99;}
+.close-button{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;align-items:center;z-index:102;opacity:.8;}
+.close-button:hover{text-decoration:none;opacity:1;}
+.close-x{display:block;height: 40px;width: 40px;font-size: 34px;position: static;background:#fff;border: 1px solid #999;border-radius: 5px;text-align: center;line-height: 40px;margin: 0;color: #999;font-weight: 100;cursor: pointer;}
+.close-text{font-size:12px;color:#999;position:static;}
+.carousel-contain{width:100%;height:100%;margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:auto;}
+.carousel-contain img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;margin:0 auto;display:block;cursor:zoom-in;}
+.carousel-contain.zoomed{align-items:flex-start;justify-content:flex-start;}
+.carousel-contain.zoomed img{max-width:none;max-height:none;width:auto;height:auto;cursor:zoom-out;}
 
 /***** Media Queries *****/
 @media all and (min-width: 320px) and (max-width: 767px) {
@@ -301,8 +314,8 @@ footer{padding-bottom:20px;}
 .show-carousel span{display:block;margin-left:10px;}
 .modal-calumet-emails,
 .modal-calumet-banners,
-.modal-sears-content{max-width: 420px;}
-.carousel-contain {width: 400px;}
+.modal-sears-content,
+.modal-mindful-content{width:96vw;height:80vh;}
 }
 @media all and (min-width: 767px) and (max-width: 800px) {
 	footer{padding-bottom:20px;width:80%;}
@@ -320,8 +333,8 @@ Vanilla Carousel & Modal
 body.modal-open{overflow:hidden;}
 
 /* Carousel container */
-.vanilla-carousel{position:relative;}
-.carousel-slide{width:100%;}
+.vanilla-carousel{position:relative;height:100%;overflow:hidden;}
+.carousel-slide{width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
 
 /* Prev/next buttons */
 .carousel-btn{background:rgba(0,0,0,.4);border:none;border-radius:50%;color:#fff;cursor:pointer;font-size:20px;height:40px;line-height:1;position:absolute;top:50%;transform:translateY(-50%);width:40px;z-index:100;}
@@ -330,7 +343,7 @@ body.modal-open{overflow:hidden;}
 .carousel-next{right:10px;}
 
 /* Dots */
-.carousel-dots{display:flex;gap:8px;justify-content:center;margin:10px 0;}
+.carousel-dots{position:absolute;bottom:10px;left:0;right:0;display:flex;gap:8px;justify-content:center;margin:0;z-index:100;}
 .carousel-dot{background:transparent;border:2px solid #999;border-radius:50%;cursor:pointer;height:10px;padding:0;width:10px;}
 .carousel-dot:hover{border-color:#333;}
 .carousel-dot.active{background:#333;border-color:#333;}
