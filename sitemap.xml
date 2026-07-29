@@ -1,47 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://thelukester777.github.io/portfolio/">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://thelukester777.github.io/portfolio/?page=start</loc>
+        <loc>https://thelukester.net/</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>1.0</priority>
-    </url>
-    <url>
-        <loc>https://thelukester777.github.io/portfolio/?page=sears</loc>
-        <priority>0.2</priority>
-    </url>
-    <url>
-        <loc>https://thelukester777.github.io/portfolio/?page=calumet</loc>
-        <priority>0.3</priority>
-    </url>
-    <url>
-        <loc>https://www.thelukester.com/?page=illustration</loc>
-        <priority>0.4</priority>
-    </url>
-    <url>
-        <loc>https://thelukester777.github.io/portfolio/?page=home</loc>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>https://thelukester777.github.io/portfolio/?page=faces</loc>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>https://thelukester777.github.io/portfolio/?page=alley</loc>
-        <priority>0.5</priority>
-    </url>
-   <url>
-        <loc>https://thelukester777.github.io/portfolio/?page=dream</loc>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>https://thelukester777.github.io/portfolio/?page=octo</loc>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>https://thelukester777.github.io/portfolio/?page=seafloor</loc>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>https://thelukester777.github.io/portfolio/?page=idea</loc>
-        <priority>0.5</priority>
     </url>
 </urlset>

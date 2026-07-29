@@ -2,10 +2,11 @@
  * Luke Young Portfolio — vanilla JS
  * Replaces jQuery + Slick carousel dependency.
  *
- * Handles three things the old jQuery/Slick setup did:
+ * Handles four things:
  *   1. Section navigation (Resume / Sears / Calumet / Illustration tabs)
  *   2. Modal open/close for project galleries
  *   3. A lightweight image carousel inside each modal
+ *   4. Live résumé sync from a Google Doc (via a Google Apps Script Web App)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,17 +14,45 @@ document.addEventListener('DOMContentLoaded', () => {
   const screen = document.querySelector('.screen');
   const header = document.querySelector('header');
 
-  /* ---------- 1. Section navigation ---------- */
+  /* ---------- 1. Section navigation (real, bookmarkable #hash routes) ---------- */
 
-  function showSection(id) {
+  const sectionIds = new Set(Array.from(sections).map((sec) => sec.id));
+
+  function idFromHash() {
+    const id = location.hash.slice(1);
+    return sectionIds.has(id) ? id : 'start';
+  }
+
+  // Shows/hides sections and updates header color. Does not touch history or scroll —
+  // used for both the initial render and history navigation (popstate).
+  function applySection(id) {
     sections.forEach((sec) => {
       sec.classList.toggle('hide', sec.id !== id);
     });
     if (header) header.className = id;
+  }
+
+  // Used for user-initiated navigation (nav clicks): updates the URL hash so the
+  // section is bookmarkable/shareable and back/forward works, then scrolls up.
+  function goToSection(id) {
+    applySection(id);
+    const hash = '#' + id;
+    if (location.hash !== hash) history.pushState({ section: id }, '', hash);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  if (header) header.className = 'start';
+  // Normalize on load: render whichever section the URL points to (defaulting to
+  // "start"), and replace history so the address bar always reflects a real section.
+  const initialId = idFromHash();
+  applySection(initialId);
+  if (location.hash !== '#' + initialId) {
+    history.replaceState({ section: initialId }, '', '#' + initialId);
+  }
+
+  window.addEventListener('popstate', () => {
+    applySection(idFromHash());
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
   // Every nav link EXCEPT the gallery triggers and modal close buttons
   // switches sections. (Gallery triggers open modals instead — handled below.)
@@ -33,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      showSection(link.dataset.link);
+      goToSection(link.dataset.link);
     });
   });
 
@@ -147,5 +176,116 @@ document.addEventListener('DOMContentLoaded', () => {
       if (diff > 50) goTo(index - 1);
       else if (diff < -50) goTo(index + 1);
     }, { passive: true });
+  }
+
+  /* ---------- 4. Live résumé sync ---------- */
+  // The résumé section already has the current résumé hard-coded as HTML (so the
+  // page works perfectly with zero JS/network calls). If RESUME_API_URL is set to a
+  // deployed Google Apps Script Web App (see apps-script/README.md), this fetches
+  // the live Google Doc on load and swaps in fresh content. Any failure — no URL set,
+  // network error, CORS block, bad JSON — just leaves the static résumé in place.
+  const RESUME_API_URL = 'https://script.google.com/macros/s/AKfycbyc6HGtHyHmYvodmV0I_E8inJd_3KyuGnUpTM5Ax_z95_p2j5yOlR-z4HibKs4PnbIL/exec';
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str == null ? '' : String(str);
+    return div.innerHTML;
+  }
+
+  // Known employers/schools to link out to, keyed by exact org name as it
+  // appears in the résumé data.
+  const RESUME_ORG_LINKS = {
+    'The American Academy of Art': 'https://www.aaart.edu/',
+  };
+
+  function renderResumeOrg(org) {
+    const url = RESUME_ORG_LINKS[org];
+    return url
+      ? `<a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">${escapeHtml(org)}</a>`
+      : escapeHtml(org);
+  }
+
+  function renderResumeEntry(item) {
+    return `
+      <div class="resume-entry">
+        <p class="resume-entry-title"><strong>${escapeHtml(item.title)}</strong> — ${renderResumeOrg(item.org)}</p>
+        <p class="resume-dates">${escapeHtml(item.dates)}</p>
+        <p>${escapeHtml(item.description)}</p>
+      </div>`;
+  }
+
+  function renderResume(data) {
+    const el = document.getElementById('resume-content');
+    if (!el || !data) return;
+
+    const skillsHtml = (data.skills || [])
+      .map((s) => `<p><strong>${escapeHtml(s.label)}:</strong> ${escapeHtml(s.value)}</p>`)
+      .join('');
+
+    const contact = data.contact || {};
+    const websiteHref = contact.website ? 'https://' + contact.website.replace(/^https?:\/\//, '') : '';
+    const contactHtml = [
+      contact.email ? `<p><a href="mailto:${escapeHtml(contact.email)}">${escapeHtml(contact.email)}</a></p>` : '',
+      contact.phone ? `<p>${escapeHtml(contact.phone)}</p>` : '',
+      contact.website ? `<p><a href="${escapeHtml(websiteHref)}">${escapeHtml(contact.website)}</a></p>` : '',
+      contact.linkedin ? `<p><a href="${escapeHtml(contact.linkedin)}" target="_blank" rel="noreferrer">LinkedIn</a></p>` : '',
+    ].filter(Boolean).join('');
+
+    // Two columns, mirroring the main/sidebar layout of the source Google Doc:
+    // main = Summary/Experience/Education/Interests, sidebar = Contact/Skills.
+    el.innerHTML = `
+      <div class="resume-heading">
+        <h3>Luke Young</h3>
+        <p class="resume-subtitle">UX/UI Designer &amp; Front-End Developer</p>
+        <p class="resume-note">This résumé is synced live from Google Docs via the Google Apps Script API.</p>
+        <a class="resume-link" href="https://docs.google.com/document/d/1LvTQ4WgiWH1Xbu-ibSoj_SDjpI465uLUam5TP9wan9k/edit?usp=sharing" title="Open Printable Source Document on Google Docs" target="_blank" rel="noreferrer">
+          Open Printable Source Document on Google Docs
+        </a>
+      </div>
+      <div class="resume-columns">
+        <div class="resume-main">
+          <div class="resume-block">
+            <h4>Summary</h4>
+            <p>${escapeHtml(data.summary)}</p>
+          </div>
+          <div class="resume-block">
+            <h4>Experience</h4>
+            ${(data.experience || []).map(renderResumeEntry).join('')}
+          </div>
+          <div class="resume-block">
+            <h4>Education</h4>
+            ${(data.education || []).map(renderResumeEntry).join('')}
+          </div>
+          <div class="resume-block">
+            <h4>Interests</h4>
+            <p>${escapeHtml(data.interests)}</p>
+          </div>
+        </div>
+        <div class="resume-sidebar">
+          <div class="resume-block">
+            <h4>Contact</h4>
+            ${contactHtml}
+          </div>
+          <div class="resume-block">
+            <h4>Skills</h4>
+            ${skillsHtml}
+          </div>
+        </div>
+      </div>
+      ${data.updated ? `<p class="resume-updated">Synced from Google Docs · ${escapeHtml(new Date(data.updated).toLocaleDateString())}</p>` : ''}
+    `;
+  }
+
+  if (RESUME_API_URL) {
+    fetch(RESUME_API_URL)
+      .then((res) => {
+        if (!res.ok) throw new Error('Résumé fetch failed: ' + res.status);
+        return res.json();
+      })
+      .then(renderResume)
+      .catch((err) => {
+        // Static fallback résumé already rendered in the page — nothing more to do.
+        console.warn('Live résumé sync unavailable, showing the static résumé instead.', err);
+      });
   }
 });
