@@ -205,6 +205,23 @@ document.addEventListener('DOMContentLoaded', () => {
       : escapeHtml(org);
   }
 
+  // Renders the Skills list, inserting a small group heading whenever a
+  // skill's `group` (e.g. "Front-End Development") differs from the group
+  // above it. Skills with no group render as plain lines, same as before.
+  function renderSkills(skills) {
+    let html = '';
+    let lastGroup = '';
+    (skills || []).forEach((s) => {
+      const group = s.group || '';
+      if (group && group !== lastGroup) {
+        html += `<p class="resume-skill-group">${escapeHtml(group)}</p>`;
+      }
+      lastGroup = group;
+      html += `<p><strong>${escapeHtml(s.label)}:</strong> ${escapeHtml(s.value)}</p>`;
+    });
+    return html;
+  }
+
   function renderResumeEntry(item) {
     return `
       <div class="resume-entry">
@@ -218,9 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const el = document.getElementById('resume-content');
     if (!el || !data) return;
 
-    const skillsHtml = (data.skills || [])
-      .map((s) => `<p><strong>${escapeHtml(s.label)}:</strong> ${escapeHtml(s.value)}</p>`)
-      .join('');
+    const skillsHtml = renderSkills(data.skills);
 
     const contact = data.contact || {};
     const websiteHref = contact.website ? 'https://' + contact.website.replace(/^https?:\/\//, '') : '';
@@ -277,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (RESUME_API_URL) {
-    fetch(RESUME_API_URL)
+    fetch(RESUME_API_URL, { cache: 'no-store' })
       .then((res) => {
         if (!res.ok) throw new Error('Résumé fetch failed: ' + res.status);
         return res.json();

@@ -91,6 +91,8 @@ table{width: 120%;}
 #start .resume-columns p{padding:6px 0;}
 .resume-entry{margin-bottom:10px;}
 .resume-entry-title{margin-bottom:0;}
+.resume-skill-group{color:#6AA84F;font-size:.85em;font-weight:bold;letter-spacing:.03em;padding-top:14px!important;text-transform:uppercase;}
+.resume-block h4 + .resume-skill-group{padding-top:0!important;}
 .resume-dates{color:#888;font-size:.85em;font-style:italic;padding-top:0!important;}
 .resume-updated{color:#999;font-size:.75em;font-style:italic;padding:10px 20px 0 20px;}
 

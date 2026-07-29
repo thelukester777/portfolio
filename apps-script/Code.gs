@@ -146,6 +146,7 @@ function buildResumeData() {
   var currentSection = null;
   var currentEntry = null;
   var lastOrg = '';
+  var currentSkillGroup = '';
 
   for (var i = 0; i < paragraphs.length; i++) {
     var text = paragraphs[i].text;
@@ -158,6 +159,7 @@ function buildResumeData() {
       currentSection = normalized;
       currentEntry = null;
       lastOrg = '';
+      currentSkillGroup = '';
       continue;
     }
 
@@ -170,11 +172,21 @@ function buildResumeData() {
       var looksLikeContactLine = text.indexOf('@') !== -1
         || links.some(function (u) { return /linkedin\.com|^mailto:/i.test(u); })
         || looksLikePhone(text);
+      // A short, colon-less line immediately followed by a "Label: value"
+      // skill line is a group heading, e.g. "Front-End Development" sitting
+      // above "Languages & Core Tech: HTML5, CSS3, ...". Use a one-line
+      // lookahead so the heading itself is what flips us into 'skills'.
+      var next = paragraphs[i + 1];
+      var nextLooksLikeSkillLine = next && /^[^:]{2,40}:\s+\S/.test(next.text);
 
       if (looksLikeContactLine) {
         currentSection = 'contact';
       } else if (looksLikeSkillLine) {
         currentSection = 'skills';
+      } else if (nextLooksLikeSkillLine && text.length < 40) {
+        currentSection = 'skills';
+        currentSkillGroup = text;
+        continue;
       } else if (!currentSection) {
         continue; // nothing recognizable yet (e.g. name/title lines up top)
       }
@@ -222,7 +234,13 @@ function buildResumeData() {
         result.skills.push({
           label: text.slice(0, colonIndex).trim(),
           value: text.slice(colonIndex + 1).trim(),
+          group: currentSkillGroup,
         });
+      } else {
+        // A colon-less line inside Skills is a group heading for whatever
+        // "Label: value" lines follow it (e.g. "Emerging Tech & AI" above
+        // "Generative AI: ...").
+        currentSkillGroup = text;
       }
       continue;
     }
