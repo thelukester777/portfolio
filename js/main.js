@@ -181,10 +181,45 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------- 4. Live résumé sync ---------- */
   // The résumé section already has the current résumé hard-coded as HTML (so the
   // page works perfectly with zero JS/network calls). If RESUME_API_URL is set to a
-  // deployed Google Apps Script Web App (see apps-script/README.md), this fetches
-  // the live Google Doc on load and swaps in fresh content. Any failure — no URL set,
-  // network error, CORS block, bad JSON — just leaves the static résumé in place.
+  // deployed Google Apps Script Web App (see apps-script/README.md), this loads
+  // the live Google Doc on load and swaps in fresh content. Any failure — no URL
+  // set, network error, bad JSON — just leaves the static résumé in place.
+  //
+  // This uses JSONP (a <script src="..."> tag) instead of fetch(). Apps Script
+  // Web Apps don't reliably send an Access-Control-Allow-Origin header, so a
+  // cross-origin fetch()/XHR gets blocked by CORS even on a public "Anyone can
+  // access" deployment — a <script> load isn't subject to CORS at all.
   const RESUME_API_URL = 'https://script.google.com/macros/s/AKfycbyc6HGtHyHmYvodmV0I_E8inJd_3KyuGnUpTM5Ax_z95_p2j5yOlR-z4HibKs4PnbIL/exec';
+
+  function loadResumeViaJsonp(url) {
+    return new Promise((resolve, reject) => {
+      const callbackName = '__resumeCallback_' + Date.now();
+      const script = document.createElement('script');
+
+      const timeoutId = setTimeout(() => {
+        cleanup();
+        reject(new Error('Résumé request timed out'));
+      }, 10000);
+
+      function cleanup() {
+        clearTimeout(timeoutId);
+        delete window[callbackName];
+        script.remove();
+      }
+
+      window[callbackName] = (data) => {
+        cleanup();
+        resolve(data);
+      };
+
+      script.src = url + (url.indexOf('?') === -1 ? '?' : '&') + 'callback=' + callbackName;
+      script.onerror = () => {
+        cleanup();
+        reject(new Error('Résumé script failed to load'));
+      };
+      document.head.appendChild(script);
+    });
+  }
 
   function escapeHtml(str) {
     const div = document.createElement('div');
@@ -292,11 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (RESUME_API_URL) {
-    fetch(RESUME_API_URL, { cache: 'no-store' })
-      .then((res) => {
-        if (!res.ok) throw new Error('Résumé fetch failed: ' + res.status);
-        return res.json();
-      })
+    loadResumeViaJsonp(RESUME_API_URL)
       .then(renderResume)
       .catch((err) => {
         // Static fallback résumé already rendered in the page — nothing more to do.
