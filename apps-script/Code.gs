@@ -37,6 +37,21 @@ var SECTION_NAMES = ['summary', 'experience', 'education', 'skills', 'interests'
 
 function doGet(e) {
   var data = buildResumeData();
+
+  // Apps Script Web Apps don't reliably send an Access-Control-Allow-Origin
+  // header on their response (there's no supported way to set one via
+  // ContentService), so a cross-origin fetch()/XHR from the portfolio site
+  // gets blocked by CORS even though the deployment is public. When the
+  // caller passes ?callback=..., respond JSONP-style instead — a plain
+  // <script src="..."> load isn't subject to CORS at all. Browsing straight
+  // to this URL (no callback) still returns plain JSON, same as before.
+  var callback = e && e.parameter && e.parameter.callback;
+  if (callback) {
+    return ContentService
+      .createTextOutput(callback + '(' + JSON.stringify(data) + ');')
+      .setMimeType(ContentService.MimeType.JAVASCRIPT);
+  }
+
   return ContentService
     .createTextOutput(JSON.stringify(data))
     .setMimeType(ContentService.MimeType.JSON);
