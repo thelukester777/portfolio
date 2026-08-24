@@ -282,11 +282,11 @@ document.addEventListener('DOMContentLoaded', () => {
     ].filter(Boolean).join('');
 
     // Two columns, mirroring the main/sidebar layout of the source Google Doc:
-    // main = Summary/Experience/Education/Interests, sidebar = Contact/Skills.
+    // main = Summary/Experience/Education, sidebar = Contact/Skills.
     el.innerHTML = `
       <div class="resume-heading">
         <h3>Luke Young</h3>
-        <p class="resume-subtitle">UX/UI Designer &amp; Front-End Developer</p>
+        <p class="resume-subtitle">WordPress Web Designer &amp; Digital Marketing Specialist</p>
         <p class="resume-note">This résumé is synced live from Google Docs via the Google Apps Script API.</p>
         <a class="resume-link" href="https://docs.google.com/document/d/1LvTQ4WgiWH1Xbu-ibSoj_SDjpI465uLUam5TP9wan9k/edit?usp=sharing" title="Open Printable Source Document on Google Docs" target="_blank" rel="noreferrer">
           Open Printable Source Document on Google Docs
@@ -305,10 +305,6 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="resume-block">
             <h4>Education</h4>
             ${(data.education || []).map(renderResumeEntry).join('')}
-          </div>
-          <div class="resume-block">
-            <h4>Interests</h4>
-            <p>${escapeHtml(data.interests)}</p>
           </div>
         </div>
         <div class="resume-sidebar">
