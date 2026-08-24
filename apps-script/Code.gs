@@ -178,24 +178,35 @@ function buildResumeData() {
       continue;
     }
 
+    // A line that unmistakably looks like contact info — an email address, a
+    // mailto:/linkedin.com link, or a bare phone number — always means we've
+    // hit the Contact block, regardless of what section we were nominally
+    // in. Some Doc layouts (including the current one) interleave Contact
+    // info between Experience entries with no heading of its own, so this
+    // check runs unconditionally rather than only when "eligible" the way
+    // the shape-detection below does.
+    var isObviousContactLine = text.indexOf('@') !== -1
+      || links.some(function (u) { return /linkedin\.com|^mailto:/i.test(u); })
+      || isPhoneOnlyLine(text);
+    if (isObviousContactLine) {
+      currentSection = 'contact';
+    }
+
     // Sidebar content (skills/contact) often has no literal heading above it —
     // detect it by shape instead. Eligible any time we're not mid-way through
     // a structured Experience/Education/Skills block (those only end at an
     // explicit heading above).
     if (!currentSection || currentSection === 'summary' || currentSection === 'interests' || currentSection === 'contact') {
-      var looksLikeSkillLine = /^[^:]{2,40}:\s+\S/.test(text);
-      var looksLikeContactLine = text.indexOf('@') !== -1
-        || links.some(function (u) { return /linkedin\.com|^mailto:/i.test(u); })
-        || looksLikePhone(text);
+      var looksLikeSkillLine = /^[^:]{2,40}:\s*\S?/.test(text) && text.indexOf(':') > -1;
       // A short, colon-less line immediately followed by a "Label: value"
       // skill line is a group heading, e.g. "Front-End Development" sitting
       // above "Languages & Core Tech: HTML5, CSS3, ...". Use a one-line
       // lookahead so the heading itself is what flips us into 'skills'.
       var next = paragraphs[i + 1];
-      var nextLooksLikeSkillLine = next && /^[^:]{2,40}:\s+\S/.test(next.text);
+      var nextLooksLikeSkillLine = next && /^[^:]{2,40}:\s*\S?/.test(next.text) && next.text.indexOf(':') > -1;
 
-      if (looksLikeContactLine) {
-        currentSection = 'contact';
+      if (currentSection === 'contact') {
+        // Already handled above.
       } else if (looksLikeSkillLine) {
         currentSection = 'skills';
       } else if (nextLooksLikeSkillLine && text.length < 40) {
@@ -245,17 +256,36 @@ function buildResumeData() {
 
     if (currentSection === 'skills') {
       var colonIndex = text.indexOf(':');
-      if (colonIndex > -1) {
-        result.skills.push({
-          label: text.slice(0, colonIndex).trim(),
-          value: text.slice(colonIndex + 1).trim(),
-          group: currentSkillGroup,
-        });
+
+      if (colonIndex === -1) {
+        // Every skill label in this Doc's current format ends with a colon
+        // ("Front-End Development:"), so a colon-less line here means we've
+        // actually left Skills — this Doc interleaves Skills between
+        // Experience entries with no closing heading of its own. Hand off
+        // back to Experience and reprocess this same paragraph under those
+        // rules (e.g. the next company/role heading).
+        currentSection = 'experience';
+        currentEntry = null;
+        lastOrg = '';
+        i--;
+        continue;
+      }
+
+      var label = text.slice(0, colonIndex).trim();
+      var inlineValue = text.slice(colonIndex + 1).trim();
+
+      if (inlineValue) {
+        // "Label: value" on one line.
+        result.skills.push({ label: label, value: inlineValue, group: currentSkillGroup });
       } else {
-        // A colon-less line inside Skills is a group heading for whatever
-        // "Label: value" lines follow it (e.g. "Emerging Tech & AI" above
-        // "Generative AI: ...").
-        currentSkillGroup = text;
+        // "Label:" alone, with the value as its own paragraph right after —
+        // take that whole next line verbatim as the value, even if it
+        // contains its own colon (e.g. "...Claude LLMs: Haiku, Sonnet...").
+        var valuePara = paragraphs[i + 1];
+        if (valuePara) {
+          result.skills.push({ label: label, value: valuePara.text, group: currentSkillGroup });
+          i++;
+        }
       }
       continue;
     }
