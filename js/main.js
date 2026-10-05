@@ -36,18 +36,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // section is bookmarkable/shareable and back/forward works, then scrolls up.
   function goToSection(id) {
     applySection(id);
-    const hash = '#' + id;
-    if (location.hash !== hash) history.pushState({ section: id }, '', hash);
+    // The default section ("start") uses the clean URL with no hash.
+    const url = id === 'start' ? location.pathname + location.search : '#' + id;
+    if (idFromHash() !== id || (id !== 'start' && location.hash !== '#' + id)) {
+      history.pushState({ section: id }, '', url);
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Normalize on load: render whichever section the URL points to (defaulting to
-  // "start"), and replace history so the address bar always reflects a real section.
-  const initialId = idFromHash();
-  applySection(initialId);
-  if (location.hash !== '#' + initialId) {
-    history.replaceState({ section: initialId }, '', '#' + initialId);
-  }
+  // Render whichever section the URL points to (defaulting to "start") without
+  // touching the address bar, so a first visit keeps the clean URL (and the
+  // browser never jumps down to a #start anchor).
+  applySection(idFromHash());
 
   window.addEventListener('popstate', () => {
     applySection(idFromHash());
