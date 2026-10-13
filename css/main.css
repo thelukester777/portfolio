@@ -20,7 +20,7 @@ header{
     box-shadow:0 4px 14px rgba(0,0,0,.35);
     box-sizing:border-box;
     display:flex;
-    font-size:.8em;
+    font-size:.9em;
     height:150px;
     justify-content:center;
     position:relative;
@@ -61,6 +61,8 @@ div.clear{clear:both;padding:20px 40px;}
 .thanks p a:hover,.error p a:hover{color: #73c2ff;}
 
 section.no-image{margin-bottom:5%;padding-top:8%;position:static;}
+.block-background,.testimonials{background: #fff;
+border-radius: 20px;box-shadow: 0 6px 24px rgba(0, 0, 0, .15);margin: 40px;padding: 30px 0 40px 0;}
 
 /* Resume */
 #start{background:#e9e9e9;background:linear-gradient(180deg, #ffffff 0%, #e9e9e9 100%);}
@@ -73,10 +75,16 @@ section.no-image{margin-bottom:5%;padding-top:8%;position:static;}
 #start a:hover{color: #666;margin:0;}
 table{width: 120%;}
 
+.testimonials{padding:20px;text-align:center;}
+.testimonial{margin:40px;padding-top:20px;text-align:center;line-height:2rem;}
+.testimonial-large{color:#0e6ca4;font-size:1.2rem; font-weight:900;}
+.testimonial-author{font-size:2rem;font-weight:900;float:}
+.testimonial-author span{display:block;font-size:1rem;}
+
 /* Résumé (rendered directly on the page, no iframe) — two columns, mirroring
    the main/sidebar layout of the source Google Doc. Card-style container so
    it stands out against the slightly darker #start section background. */
-.resume{background:#fff;border-radius:20px;box-shadow:0 6px 24px rgba(0,0,0,.15);margin:40px;padding:30px 0 40px 0;}
+.resume{background:#fff;border-radius:20px;box-shadow:0 6px 24px rgba(0,0,0,.15);margin:0px 40px 40px;padding:30px 0 40px 0;}
 .resume-heading{padding:10px 20px 24px 20px;text-align:center;}
 .resume-heading h3{color:#6AA84F;font-size:3em;margin:0;}
 #start .resume-subtitle{color:#555;font-weight:bold;margin:2px 0 0 0;padding:0;}
