@@ -39,7 +39,7 @@ h1.top-level{color:#fff;font-size:1.4em;line-height:1em;margin:0;padding:0;}
 
 /* Brand (avatar + title) */
 .brand{align-items:center;display:flex;gap:14px;}
-.brand .avatar{border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.3);flex-shrink:0;height:80px;object-fit:cover;width:80px;}
+.brand .avatar{border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.3);flex-shrink:0;height:100px;object-fit:cover;width:100px;}
 
 /***** Mini Navigation *****/
 .mini-navigation{align-items:center;box-sizing:border-box;display:flex;flex-wrap:wrap;justify-content:space-between;margin:0 auto;max-width:978px;padding:0 20px;width:100%;}
@@ -65,28 +65,30 @@ section.no-image{margin-bottom:5%;padding-top:8%;position:static;}
 border-radius: 20px;box-shadow: 0 6px 24px rgba(0, 0, 0, .15);margin: 40px;padding: 30px 0 40px 0;}
 
 /* Resume */
-#start{background:#e9e9e9;background:linear-gradient(180deg, #ffffff 0%, #e9e9e9 100%);}
-#start h2{float:none;}
+#start{background:#e9e9e9;background:linear-gradient(180deg, #ffffff 0%, #e9e9e9 100%);padding-top:1px;}
+#start h2{color:#0e6ca4;float:none;text-align:center;}
 #start h3,
 #start h4{float:none;margin:0;}
 #start p{padding:10px 20px;}
 #start a:link,
 #start a:visited,
-#start a:hover{color: #666;margin:0;}
+#start a:hover{color:#0e6ca4;margin:0;}
 table{width: 120%;}
 
 .testimonials{padding:20px;text-align:center;}
-.testimonial{margin:40px;padding-top:20px;text-align:center;line-height:2rem;}
+.testimonial{margin:30px 40px 40px 40px;text-align:center;line-height:2rem;}
 .testimonial-large{color:#0e6ca4;font-size:1.2rem; font-weight:900;}
 .testimonial-author{font-size:2rem;font-weight:900;float:}
 .testimonial-author span{display:block;font-size:1rem;}
+.quote-icon{height:61px;width:80px;display:block;text-align:center;margin:0 auto;}
+.speech-bubble-icon{height:62px;width:88px;display:block;text-align:center;margin:0 auto;}
 
 /* Résumé (rendered directly on the page, no iframe) — two columns, mirroring
    the main/sidebar layout of the source Google Doc. Card-style container so
    it stands out against the slightly darker #start section background. */
 .resume{background:#fff;border-radius:20px;box-shadow:0 6px 24px rgba(0,0,0,.15);margin:0px 40px 40px;padding:30px 0 40px 0;}
 .resume-heading{padding:10px 20px 24px 20px;text-align:center;}
-.resume-heading h3{color:#6AA84F;font-size:3em;margin:0;}
+.resume-heading h3{color:#0e6ca4;font-size:3em;margin:0;}
 #start .resume-subtitle{color:#555;font-weight:bold;margin:2px 0 0 0;padding:0;}
 #start .resume-note{color:#999;font-size:.75em;font-style:italic;margin:8px 0 0 0;padding:0;}
 #start .resume-heading .resume-link{display:inline-block;font-size:.75em;font-style:italic;margin:10px 0 0 0;}
@@ -95,11 +97,11 @@ table{width: 120%;}
 .resume-sidebar{min-width:0;}
 .resume-sidebar{border-left:2px solid #e5e5e5;padding-left:30px;}
 .resume-block{margin-bottom:10px;}
-.resume-block h4{color:#6AA84F;font-size:1.05em;letter-spacing:.05em;margin:20px 0 10px 0;text-transform:uppercase;}
+.resume-block h4{color:#0e6ca4;font-size:1.05em;letter-spacing:.05em;margin:20px 0 10px 0;text-transform:uppercase;}
 #start .resume-columns p{padding:6px 0;}
 .resume-entry{margin-bottom:10px;}
 .resume-entry-title{margin-bottom:0;}
-.resume-skill-group{color:#6AA84F;font-size:.85em;font-weight:bold;letter-spacing:.03em;padding-top:14px!important;text-transform:uppercase;}
+.resume-skill-group{color:#0e6ca4;font-size:.85em;font-weight:bold;letter-spacing:.03em;padding-top:14px!important;text-transform:uppercase;}
 .resume-block h4 + .resume-skill-group{padding-top:0!important;}
 .resume-dates{color:#888;font-size:.85em;font-style:italic;padding-top:0!important;}
 .resume-updated{color:#999;font-size:.75em;font-style:italic;padding:10px 20px 0 20px;}
