@@ -60,7 +60,7 @@ div.clear{clear:both;padding:20px 40px;}
 .thanks p a:visited,.error p a:visited{color: #4989bb;}
 .thanks p a:hover,.error p a:hover{color: #73c2ff;}
 
-section.no-image{margin-bottom:5%;padding-top:8%;position:static;}
+section.no-image{margin-bottom:5%;padding-top:5%;position:static;}
 .block-background,.testimonials{background: #fff;
 border-radius: 20px;box-shadow: 0 6px 24px rgba(0, 0, 0, .15);margin: 40px;padding: 30px 0 40px 0;}
 
@@ -107,7 +107,10 @@ table{width: 120%;}
 .resume-updated{color:#999;font-size:.75em;font-style:italic;padding:10px 20px 0 20px;}
 
 @media all and (min-width: 320px) and (max-width: 767px) {
-    .resume{margin:20px;border-radius:12px;}
+    .resume,
+    .block-background,
+    .testimonials{margin:20px;border-radius:12px;}
+    .resume{margin-top:1px;}
     .resume-columns{display:block;padding:0 20px;}
     .resume-sidebar{border-left:0;border-top:2px solid #e5e5e5;margin-top:20px;padding:10px 0 0 0;}
 }
@@ -116,7 +119,7 @@ hr{border:0;border-bottom: 1px dashed #889b4a;margin:40px 20px;}
 
 /* Mindful Practices & Class Catalyst */
 #mindful{background:url('../images/cc-dashes-clouds-birds-background.jpg') top right / contain no-repeat #fff;border-top:solid 1px #666;}
-#mindful .logos{width: 600px;margin: 0 auto;display: block;}
+#mindful .logos{display:block;float:none;height:auto;margin:120px auto 20px auto;max-width:960px;width:60%;}
 #mindful h2,
 #mindful h3{float:none;margin:0;padding:5px 20px;}
 #mindful p{float:none;padding:10px 20px;}
@@ -212,8 +215,8 @@ footer a:hover{color:#fff;}
 .lightbox{align-items:center;background:rgba(0,0,0,.92);display:none;flex-direction:column;inset:0;justify-content:center;position:fixed;z-index:200;}
 .lightbox.open{display:flex;}
 body.modal-open{overflow:hidden;}
-.lightbox-stage{flex:1;max-width:min(96vw,1400px);min-height:0;overflow:auto;padding:56px 0 8px 0;width:100%;text-align:center;}
-.lightbox-stage img{display:inline-block;height:auto;max-width:100%;width:auto;}
+.lightbox-stage{display:flex;flex:1;max-width:min(96vw,1400px);min-height:0;overflow:auto;padding:56px 0 8px 0;width:100%;text-align:center;}
+.lightbox-stage img{display:block;flex:none;height:auto;margin:auto;max-width:100%;width:auto;}
 .lightbox-caption{color:#ddd;font-size:.9rem;margin:0;padding:8px 20px 14px 20px;text-align:center;}
 .lightbox button{background:rgba(255,255,255,.12);border:0;border-radius:50%;color:#fff;cursor:pointer;font-size:26px;height:44px;line-height:1;position:absolute;transition:background .2s;width:44px;}
 .lightbox button:hover,
@@ -232,9 +235,11 @@ h2,h3{float:none;padding:20px 10px 10px 10px;}
 h1.top-level{font-size:1.1em;margin-bottom:6px;text-align:center;}
 .brand{justify-content:center;margin-bottom:10px;width:100%;}
 .brand .avatar{height:44px;width:44px;}
+main,
+main > section{border-radius:0;margin-top:0;}
 p{padding:10px;}
 section img{border-radius:0!important;}
-hr{margin:20px 10px;}
+hr{margin:20px 20px;}
 .mini-navigation{justify-content:center;padding:0 10px;}
 .mini-navigation ul{justify-content:center;}
 .mini-navigation ul li a{margin:0 6px 0 0;}
@@ -252,8 +257,24 @@ footer{padding-bottom:20px;}
 .lightbox-trigger{float:none;margin:10px;width:92%;}
 #sears .lightbox-trigger img,
 #calumet .lightbox-trigger img{float:none!important;height:auto!important;margin:0!important;width:100%!important;}
-#mindful .clear > p{width:auto;}
-.gallery{gap:10px;margin:10px;}
+#mindful > div.clear > p{width:100%;}
+div.clear{padding:20px;}
+#mindful{background:linear-gradient(180deg,rgba(255,255,255,.2) 0%,#fff 100%) top / 100% 148vw no-repeat,url('../images/cc-dashes-clouds-birds-background.jpg') top right / contain no-repeat #fff;}
+#mindful h2,
+#mindful h3,
+#mindful p{padding-left:0;padding-right:0;}
+#mindful .logos{margin:60px auto 20px auto;}
+#calumet img,
+#calumet h2,
+#calumet h3,
+#calumet p,
+#sears img,
+#sears h2,
+#sears h3,
+#sears p{margin-left:0!important;margin-right:0!important;width:100%!important;}
+#sears .logos{margin:20px auto 0 auto!important;width:94%!important;}
+.lightbox-trigger{margin:10px 0;width:100%;}
+.gallery{gap:10px;margin:10px 0;}
 .gallery-item{flex-basis:calc(var(--w,1) * 90px);height:140px;}
 #home .gallery-item{height:170px;}
 .gallery-feature{flex-basis:100%;height:auto;}
